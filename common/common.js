@@ -1,3 +1,5 @@
+// common functions that are shared between all the event files
+
 const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
@@ -16,6 +18,9 @@ const inputToIntArray = (filename, split) => {
 
 function calculatePercentage(part, total) {
   return Math.round((part / total) * 100);
+}
+const test = (givenFunction, input, expected) => {
+  return { f: givenFunction, input, expected }
 }
 
 const tests = (tests) => {
@@ -49,83 +54,10 @@ const inputToString = (filename) => {
   return returnInput(filename);
 };
 
-function isOdd(num) {
-  return num % 2;
-}
-
-const findManhattanDistance = (p1, p2) => {
-  return Math.abs(p1.x - p2.x) + Math.abs(p1.y - p2.y);
-};
-
-const generateGrid = (maxX, maxY, fill) => {
-  // generate a array of arrays using the max X and Y
-  let grid = [];
-  for (let y = 0; y <= maxY; y++) {
-    grid[y] = [];
-    for (let x = 0; x <= maxX; x++) {
-      grid[y][x] = fill;
-    }
-  }
-  return grid;
-};
-
-const returnAllPointsBetweenTwoCoords = (coord1, coord2) => {
-  // return all the coordinates between two coordinates
-  let points = [];
-  let x1 = coord1.x;
-  let y1 = coord1.y;
-  let x2 = coord2.x;
-  let y2 = coord2.y;
-  let XPoints = [];
-  let YPoints = [];
-  if (x1 < x2) {
-    // x1 is less than x2
-    for (let x = x1; x <= x2; x++) {
-      XPoints.push(x);
-    }
-  } else {
-    // x1 is greater than x2
-    for (let x = x1; x >= x2; x--) {
-      XPoints.push(x);
-    }
-  }
-  if (y1 < y2) {
-    // y1 is less than y2
-    for (let y = y1; y <= y2; y++) {
-      YPoints.push(y);
-    }
-  } else {
-    // y1 is greater than y2
-    for (let y = y1; y >= y2; y--) {
-      YPoints.push(y);
-    }
-  }
-  XPoints.forEach((xcoord, i) => {
-    points.push({ x: xcoord, y: YPoints[i] });
-  });
-  return points;
-};
-
-const findMaxCoordsInArray = (input) => {
-  // find the max X and Y on a array of coords
-  let maxX = 0,
-    maxY = 0;
-  input.forEach(({ x, y }) => {
-    if (x > maxX) maxX = x;
-    if (y > maxY) maxY = y;
-  });
-  return { maxX, maxY };
-};
-
 module.exports = {
   inputToArray,
   inputToIntArray,
-  tests,
   inputToString,
-  isOdd,
-  findManhattanDistance,
-  returnInput,
-  generateGrid,
-  returnAllPointsBetweenTwoCoords,
-  findMaxCoordsInArray,
+  test,
+  tests,
 };
