@@ -46,15 +46,17 @@ const part2 = (input) => {
 
   totArr.push(runningTot);
 
-  const sortedArr = totArr.sort(function(a, b){return b - a});
+  const sortedArr = totArr.sort(function (a, b) {
+    return b - a;
+  });
   const result = sortedArr[0] + sortedArr[1] + sortedArr[2];
 
   return result;
 };
 
 tests([
-  // test(part1, _TESTinput, 24000),
-  // test(part1, _REALinput, 0),
-  // test(part2, _TESTinput, 45000),
+  test(part1, _TESTinput, 24000),
+  test(part1, _REALinput, 68467),
+  test(part2, _TESTinput, 45000),
   test(part2, _REALinput, 203420),
 ]);

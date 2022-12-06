@@ -56,15 +56,13 @@ const part2 = (input) => {
 
     let score = 0;
 
-    if (me === "Z"
-    ) {
+    if (me === "Z") {
       score += 6;
 
       if (opp === "C") score += 1;
       if (opp === "A") score += 2;
       if (opp === "B") score += 3;
-    } else if (me === "Y"
-    ) {
+    } else if (me === "Y") {
       score += 3;
 
       if (opp === "A") score += 1;
@@ -83,8 +81,8 @@ const part2 = (input) => {
 };
 
 tests([
-  // test(part1, _TESTinput, 15),
-  // test(part1, _REALinput, 0),
-  // test(part2, _TESTinput, 12),
-  // test(part2, _REALinput, 13131),
+  test(part1, _TESTinput, 15),
+  test(part1, _REALinput, 13221),
+  test(part2, _TESTinput, 12),
+  test(part2, _REALinput, 13131),
 ]);

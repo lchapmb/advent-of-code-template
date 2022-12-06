@@ -73,8 +73,8 @@ const part2 = (input) => {
 };
 
 tests([
-  // test(part1, _TESTinput, 157),
-  // test(part1, _REALinput, 7597),
-  // test(part2, _TESTinput, 70),
-  // test(part2, _REALinput, 2607),
+  test(part1, _TESTinput, 157),
+  test(part1, _REALinput, 7597),
+  test(part2, _TESTinput, 70),
+  test(part2, _REALinput, 2607),
 ]);
