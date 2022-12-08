@@ -49,8 +49,7 @@ const createInputObj = (inputArr) => {
   return { stack: stackArr, instructions: instructions };
 };
 
-const createNewStack = (inputObj) => {
-  console.log(inputObj)
+const createNewStack = (inputObj, craneType) => {
   let stack = inputObj.stack;
   const instructions = inputObj.instructions;
 
@@ -65,7 +64,11 @@ const createNewStack = (inputObj) => {
       for (let j = 0; j < stack.length; j++) {
         const stackVal = stack[j][fromVal];
         if (stackVal != " ") {
-          transportArr.push(stackVal);
+          if(craneType === "9000") {
+            transportArr.push(stackVal);
+          } else if (craneType === "9001"){
+            transportArr.unshift(stackVal);
+          }
           stack[j][fromVal] = " ";
           quantity--;
           break;
@@ -116,20 +119,22 @@ const createMessage = (stack) => {
 const part1 = (input) => {
   // part 1
   const inputObj = createInputObj(input);
-  const newStack = createNewStack(inputObj)
+  const newStack = createNewStack(inputObj, "9000")
   const message = createMessage(newStack);
   return message;
 };
 
 const part2 = (input) => {
   // part 2
-
-  return 0;
+  const inputObj = createInputObj(input);
+  const newStack = createNewStack(inputObj, "9001")
+  const message = createMessage(newStack);
+  return message;
 };
 
 tests([
   test(part1, _TESTinput, "CMZ"),
   test(part1, _REALinput, "VPCDMSLWJ"),
-  // test(part2, _TESTinput, 0),
-  // test(part2, _REALinput, 0),
+  test(part2, _TESTinput, "MCD"),
+  test(part2, _REALinput, "TPWCGNCCG"),
 ]);
