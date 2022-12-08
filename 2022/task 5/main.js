@@ -20,15 +20,12 @@ const part1 = (input) => {
   const instructions = input.slice(gap + 1);
   // console.log(instructions);
 
-  for (let i = boxStartState.length - 1; i >= 0; i--) {
-    let row = boxStartState[i];
-    console.log(row);
-    let col = [];
+  for (let i = 0; i < boxStartState.length; i++) {
+    let row = [];
     for (let j = 1; j < row.length; j += 4) {
-      console.log(row[j]);
-      col.push(row[j]);
+      row.push(boxStartState[j]);
     }
-    console.log(col);
+    console.log(row);
   }
 
   return 0;
