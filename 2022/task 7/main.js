@@ -8,10 +8,11 @@
 const { inputToArray, test, tests } = require("../../common/common");
 
 // const _REALinput = inputToArray("../2022/task 2/input.txt", "\r\n");
-// const _TESTinput = inputToArray("../2022/task 2/test.txt", "\r\n");
+const _TESTinput = inputToArray("../2022/task 7/test.txt", "\r\n");
 
 const part1 = (input) => {
   // part 1
+  console.log(input);
 
   return 0;
 };
@@ -23,7 +24,7 @@ const part2 = (input) => {
 };
 
 tests([
-  // test(part1, _TESTinput, 0),
+  test(part1, _TESTinput, 95437),
   // test(part1, _REALinput, 0),
   // test(part2, _TESTinput, 0),
   // test(part2, _REALinput, 0),
